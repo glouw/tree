@@ -208,12 +208,10 @@ node_replace(tree* t, node* oldn, node* newn)
         newn->p = oldn->p;
 }
 
-static inline tree*
+static inline tree
 tree_create(void)
 {
-    tree* t = malloc(sizeof(*t));
-    t->root = NULL;
-    t->size = 0;
+    tree t = { 0 };
     return t;
 }
 
@@ -515,16 +513,16 @@ main(void)
     SDL_CreateWindowAndRenderer(xres, yres, 0, &window, &renderer);
     SDL_RenderPresent(renderer);
     SDL_Delay(capture_delay);
-    tree* t = tree_create();
+    tree t = tree_create();
     for(int i = 0; i < cycles; i++)
     {
-        tree_insert(t, rand());
-        render(renderer, xres, yres, t);
+        tree_insert(&t, rand());
+        render(renderer, xres, yres, &t);
     }
-    while(t->size)
+    while(t.size)
     {
-        tree_delete(t, t->root->key);
-        render(renderer, xres, yres, t);
+        tree_delete(&t, t.root->key);
+        render(renderer, xres, yres, &t);
     }
     SDL_Delay(capture_delay);
     SDL_DestroyRenderer(renderer);
