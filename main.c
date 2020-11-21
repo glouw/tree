@@ -54,13 +54,13 @@ node_color(node* n)
     return n ? n->c : BLK;
 }
 
-static inline color
+static inline int
 node_is_blk(node* n)
 {
     return node_color(n) == BLK;
 }
 
-static inline color
+static inline int
 node_is_red(node* n)
 {
     return node_color(n) == RED;
