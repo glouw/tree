@@ -2,7 +2,7 @@
 
 Animates a Red Black Tree in the festive Christmas spirit of red and green.
 
-![](img.png)
+![](tree.png)
 
 # References
 
