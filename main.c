@@ -486,7 +486,7 @@ node_draw(node* self, SDL_Renderer* renderer, int xres, int x, int y, int width)
         SDL_SetRenderDrawColor(renderer, red ? 0xFF : 0x00, red ? 0x00 : 0xFF, 0x00, 0x00);
         SDL_RenderDrawLine(renderer, x, y, xa, ya);
         SDL_RenderDrawLine(renderer, x, y, xb, ya);
-        node_draw(self->l,  renderer, xres, xa, ya, half);
+        node_draw(self->l, renderer, xres, xa, ya, half);
         node_draw(self->r, renderer, xres, xb, ya, half);
     }
 }
